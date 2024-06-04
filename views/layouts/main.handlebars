@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah's Tech Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/materialize.min.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
+</head>
+
+<body>
+    {{!-- NAVBAR --}}
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img class="logo-tech-blog" src="../../public/images/techBlogLogo.png" alt="Tech Blog Logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+
+    <div class="row headline">
+        <div class="col s6 m4 l3">
+            <img class="ipad-image" src="../../public/images/techBlogImage.png" alt="Ipad in front of newpaper with tech blog">
+        </div>
+        <div class="col s6 m8 l9">
+            <h1>Everything Tech and Programming</h1>
+        </div>
+    </div>
+
+    <main>
+        {{{ body }}}
+    </main>
+
+    <script src="../../public/js/jquery-3.7.1.slim.min.js"></script>
+    <script src="../../public/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+    <script src="../../public/js/script.js"></script>
+</body>
+
+</html>

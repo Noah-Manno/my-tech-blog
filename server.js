@@ -11,6 +11,16 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.use('/public', express.static('public', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+    if (path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'text/javascript')
+    }
+  }
+}));
 
 const sess = {
     secret: 'Super secret secret',
