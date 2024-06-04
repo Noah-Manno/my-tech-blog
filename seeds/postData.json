@@ -1,0 +1,10 @@
+[
+    {
+        "name": "MVC",
+        "content": "MVC(model-view-controller) is a very important concept which helps you organize larger full stack applications with effective file structure and organization."
+    },
+    {
+        "name": "Handlebars",
+        "content": "Handlebars is a package which allows you to dynamically load pages for the user. This prevents you from having to create too much html files."
+    }
+]
