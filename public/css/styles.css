@@ -1,0 +1,40 @@
+body {
+    overflow-x: hidden;
+}
+
+nav {
+    height: 200px;
+    background-color: #05347e;
+}
+
+.logo-tech-blog {
+    width: 200px;
+}
+
+.card-header {
+    background-color: #395ce0;
+    color: white;
+}
+
+.ipad-image {
+    width: 100%;
+}
+
+.headline {
+    background-color: #05347e;
+}
+
+h1 {
+    color: white;
+    font-weight: 600;
+    text-align: right;
+    font-size: calc(2.5vh + 2.5vw);
+}
+
+.card-title {
+    margin-left: 10px;
+}
+
+.date-posted {
+    float: right;
+}
