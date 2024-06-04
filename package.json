@@ -1,0 +1,36 @@
+{
+  "name": "my-tech-blog",
+  "version": "1.0.0",
+  "description": "A Tech Blog to share my thoughts on tech.",
+  "main": "server.js",
+  "scripts": {
+    "test": "N/A",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noah-Manno/my-tech-blog.git"
+  },
+  "keywords": [
+    "tech",
+    "blog",
+    "technology",
+    "coding"
+  ],
+  "author": "Noah Manno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Noah-Manno/my-tech-blog/issues"
+  },
+  "homepage": "https://github.com/Noah-Manno/my-tech-blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.0.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.18.0",
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.3"
+  }
+}
