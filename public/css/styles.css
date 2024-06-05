@@ -58,3 +58,33 @@ h2 {
     color: white;
     font-weight: 800;
 }
+
+#logout-link-mobile:hover {
+    cursor: pointer;
+}
+
+.add-post-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-post-button {
+    padding: 10px 40px;
+    border-radius: 16px;
+    background-color: #395ce0;
+    color: white;
+    font-weight: 800;
+}
+
+.add-post-button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px blue;
+}
+
+h3 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+    
+}

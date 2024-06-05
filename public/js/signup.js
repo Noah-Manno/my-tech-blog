@@ -16,7 +16,7 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/')
         } else {
-            alert('missing email, username, or password');
+            alert('invalid signup');
         }
     }
 };

@@ -1,17 +1,17 @@
 const logoutHandler = async () => {
         const response = await fetch('/api/users/logout', {
             method: 'POST',
-            body: JSON.stringify(req.session.logged_in),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/')
+            document.location.replace('/login')
         } else {
             alert('Could not logout');
         }
 };
 
-const logoutLinks = document.querySelector('#logout-link')
-console.log(logoutLinks)
-logoutLinks.addEventListener('click', logoutHandler)
+const logoutLink = document.querySelector('#logout-link')
+logoutLink.addEventListener('click', logoutHandler)
+const logoutLinkMobile = document.querySelector('#logout-link-mobile')
+logoutLinkMobile.addEventListener('click', logoutHandler)

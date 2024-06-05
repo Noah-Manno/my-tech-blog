@@ -1,0 +1,16 @@
+<h2>My Dashboard</h2>
+<div class="divider"></div>
+<div class="row">
+  {{#if posts.length}}
+    {{#each posts as |post|}}
+      {{> blogpost}}
+    {{/each}}
+  {{else}}
+    <h3>You have not made any posts yet, make one here!</h3>
+  {{/if}}
+</div>
+<div class="add-post-button-container">
+  <button class="add-post-button" id="add-post-button">Add Post</button>
+</div>
+
+<script src="../public/js/post.js"></script>

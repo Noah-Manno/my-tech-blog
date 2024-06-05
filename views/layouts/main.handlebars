@@ -23,7 +23,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/dashboard">Dashboard</a></li>
                 {{#if logged_in}}
-                <li><a>Logout</a></li>
+                <li><a id="logout-link">Logout</a></li>
                 {{else}}
                 <li><a href="/login">Login</a></li>
                 {{/if}}
@@ -35,7 +35,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/dashboard">Dashboard</a></li>
         {{#if logged_in}}
-        <li><a>Logout</a></li>
+        <li><a id="logout-link-mobile">Logout</a></li>
         {{else}}
         <li><a href="/login">Login</a></li>
         {{/if}}
@@ -63,7 +63,7 @@
         });
     </script>
     {{#if logged_in}}
-    <script src="/js/logout.js"></script>
+    <script type="text/javascript" src="/public/js/logout.js"></script>
     {{/if}}
 </body>
 
