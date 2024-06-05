@@ -61,7 +61,11 @@
         $(document).ready(function () {
             $('.sidenav').sidenav();
         });
+        $(document).ready(function () {
+            $('.modal').modal();
+        });
     </script>
+
     {{#if logged_in}}
     <script type="text/javascript" src="/public/js/logout.js"></script>
     {{/if}}

@@ -1,0 +1,42 @@
+<div class="col s12">
+    <div class="card">
+        <div class="card-header">
+            <span class="card-title">{{name}}</span>
+            <span class="date-posted">{{date_created}} by {{user.username}}</span>
+        </div>
+        <div class="card-content">
+            <p>{{content}}</p>
+        </div>
+    </div>
+</div>
+<div class="row" id="comment-container">
+{{#if comments.length}}
+  {{#each comments as |comment|}}
+  {{> comment}}
+  {{/each}}
+  {{else}}
+  <h4>No Comments on this post yet. Add one below!</h4>
+  {{/if}}
+</div>
+
+<!-- Modal Trigger -->
+<div class="button-container">
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Create Comment</a>
+</div>
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+  <form id="create-comment-form" class="row login-form">
+    <div class="modal-content">
+      <div class="input-field col s10 offset-s1">
+        <textarea id="comment-content" type="text" class="materialize-textarea"></textarea>
+        <label for="comment-content">Your Comment</label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="button-container">
+        <button id="add-comment-button" type="submit" class="waves-effect waves-light btn">Post Comment</button>
+      </div>
+    </div>
+  </form>
+</div>

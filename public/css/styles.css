@@ -63,28 +63,32 @@ h2 {
     cursor: pointer;
 }
 
-.add-post-button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.add-post-button {
-    padding: 10px 40px;
-    border-radius: 16px;
-    background-color: #395ce0;
-    color: white;
-    font-weight: 800;
-}
-
-.add-post-button:hover {
-    cursor: pointer;
-    box-shadow: 0px 0px 10px blue;
-}
-
 h3 {
     font-size: 30px;
     text-align: center;
     font-weight: 600;
-    
+}
+
+.button-container {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal1,
+#modal2 {
+    min-height: 300px;
+}
+
+.card-title:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
 }

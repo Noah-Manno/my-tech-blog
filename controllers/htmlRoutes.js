@@ -1,13 +1,23 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
-const withAuth = require('../utils/withAuth')
-const withoutAuth = require('../utils/withoutAuth')
+const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/withAuth');
+const withoutAuth = require('../utils/withoutAuth');
+const dateUtils = require('../utils/dateUtils');
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findAll({})
-        const posts = postData.map((post) => post.get({ plain: true }));
-        console.log(posts)
+        const postData = await Post.findAll({
+            include: {
+                model: User,
+                attributes: { exclude: ['password'] },
+            },
+        });
+        const posts = postData.map((post) => {
+            const formattedPost = post.get({ plain: true });
+            formattedPost.date_created = dateUtils.format_date(formattedPost.date_created);
+            return formattedPost;
+        });
+        console.log(posts);
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in,
@@ -16,6 +26,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
 router.get('/login', withoutAuth, (req, res) => { res.render('login') });
 router.get('/signup', withoutAuth, (req, res) => { res.render('signup'); });
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -23,11 +34,54 @@ router.get('/dashboard', withAuth, async (req, res) => {
         const postData = await Post.findAll({
             where: {
                 user_id: req.session.user_id
-            }
+            },
+            include: {
+                model: User,
+                attributes: { exclude: ['password'] },
+            },
         });
-        const posts = postData.map((post) => post.get({ plain: true }));
+        const posts = postData.map((post) => {
+            const formattedPost = post.get({ plain: true });
+            formattedPost.date_created = dateUtils.format_date(formattedPost.date_created);
+            return formattedPost;
+        });
         res.render('dashboard', {
             posts,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/details/:id', async (req, res) => { 
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: { exclude: ['password'] },
+                },
+                {
+                    model: Comment,
+                },
+            ],
+        });
+
+        if (!postData) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
+        const post = postData.get({ plain: true });
+        post.date_created = dateUtils.format_date(post.date_created);
+console.log(post)
+        res.render('details', {
+            name: post.name,
+            date_created: post.date_created,
+            content: post.content,
+            user: {
+                username: post.user.username
+            },
             logged_in: req.session.logged_in,
         });
     } catch (err) {

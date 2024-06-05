@@ -1,16 +1,40 @@
 <h2>My Dashboard</h2>
 <div class="divider"></div>
-<div class="row">
+<div class="row" id="blog-posts-container">
   {{#if posts.length}}
-    {{#each posts as |post|}}
-      {{> blogpost}}
-    {{/each}}
+  {{#each posts as |post|}}
+  {{> blogpost}}
+  {{/each}}
   {{else}}
-    <h3>You have not made any posts yet, make one here!</h3>
+  <h3>You have not made any posts yet, make one here!</h3>
   {{/if}}
 </div>
-<div class="add-post-button-container">
-  <button class="add-post-button" id="add-post-button">Add Post</button>
+
+<!-- Modal Trigger -->
+<div class="button-container">
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Create Post</a>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <form id="create-post-form" class="row login-form">
+    <div class="modal-content">
+      <div class="input-field col s10 offset-s1">
+        <input id="post-name" type="text" class="validate">
+        <label for="post-name">What is your post about?</label>
+      </div>
+      <div class="input-field col s10 offset-s1">
+        <textarea id="post-content" type="text" class="materialize-textarea"></textarea>
+        <label for="post-content">Post Content</label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="button-container">
+        <button id="add-post-button" type="submit" class="waves-effect waves-light btn">Add Post</button>
+      </div>
+    </div>
+  </form>
 </div>
 
 <script src="../public/js/post.js"></script>
+<script src="../public/js/postDetails.js"></script>

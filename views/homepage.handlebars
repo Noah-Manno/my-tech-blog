@@ -1,7 +1,9 @@
 <h2>Blog Posts</h2>
 <div class="divider"></div>
-<div class="row">
+<div class="row" id="blog-posts-container">
 {{#each posts as |post|}}
 {{> blogpost}}
 {{/each}}
 </div>
+
+<script src="../public/js/postDetails.js"></script>
