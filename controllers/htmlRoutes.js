@@ -64,6 +64,10 @@ router.get('/details/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['username'], 
+                    },
                 },
             ],
         });
@@ -76,6 +80,7 @@ router.get('/details/:id', async (req, res) => {
         post.date_created = dateUtils.format_date(post.date_created);
 console.log(post)
         res.render('details', {
+            id: post.id,
             name: post.name,
             date_created: post.date_created,
             content: post.content,
@@ -83,6 +88,14 @@ console.log(post)
                 username: post.user.username
             },
             logged_in: req.session.logged_in,
+            comments: post.comments.map(comment => ({
+                id: comment.id,
+                content: comment.content,
+                date_created: dateUtils.format_date(comment.date_created),
+                user: {
+                    username: comment.user.username,
+                }
+            }))
         });
     } catch (err) {
         res.status(500).json(err);

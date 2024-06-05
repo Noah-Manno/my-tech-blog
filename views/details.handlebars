@@ -1,4 +1,4 @@
-<div class="col s12">
+<div class="col s12" id="current-post" data-post-id={{id}}>
     <div class="card">
         <div class="card-header">
             <span class="card-title">{{name}}</span>
@@ -9,6 +9,8 @@
         </div>
     </div>
 </div>
+<h2>Comments</h2>
+<div class="divider"></div>
 <div class="row" id="comment-container">
 {{#if comments.length}}
   {{#each comments as |comment|}}
@@ -20,9 +22,11 @@
 </div>
 
 <!-- Modal Trigger -->
+{{#if logged_in}}
 <div class="button-container">
   <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Create Comment</a>
 </div>
+{{/if}}
 <!-- Modal Structure -->
 <div id="modal2" class="modal">
   <form id="create-comment-form" class="row login-form">
@@ -35,8 +39,10 @@
 
     <div class="modal-footer">
       <div class="button-container">
-        <button id="add-comment-button" type="submit" class="waves-effect waves-light btn">Post Comment</button>
+        <button id="add-comment-button" form="create-comment-form" type="submit" class="waves-effect waves-light btn">Post Comment</button>
       </div>
     </div>
   </form>
 </div>
+
+<script src="../public/js/comment.js"></script>
