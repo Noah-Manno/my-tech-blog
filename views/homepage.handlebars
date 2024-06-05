@@ -1,9 +1,13 @@
 <h2>Blog Posts</h2>
 <div class="divider"></div>
 <div class="row" id="blog-posts-container">
+{{#if posts.length}} 
 {{#each posts as |post|}}
 {{> blogpost}}
 {{/each}}
+{{else}}
+<h3>No Posts Yet!</h3>
+{{/if}}
 </div>
 
 <script src="../public/js/postDetails.js"></script>
