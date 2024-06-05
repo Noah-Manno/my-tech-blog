@@ -5,28 +5,32 @@ const withAuth = require('../utils/withAuth')
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({})
-        const posts = postData.map((post) => post.get({ plain: true}));
+        const posts = postData.map((post) => post.get({ plain: true }));
         console.log(posts)
-        res.render('homepage', { posts });
+        res.render('homepage', {
+            posts,
+            logged_in: req.session.logged_in,
+        });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 router.get('/login', (req, res) => {
-    try {
-        res.render('login');
-    } catch (err) {
-        res.status(500).json(err);
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
     }
+
+        res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-    try {
-        res.render('signup');
-    } catch (err) {
-        res.status(500).json(err);
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
     }
+        res.render('signup');
 });
 
 router.get('/dashboard', withAuth, (req, res) => {
