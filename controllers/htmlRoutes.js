@@ -102,4 +102,35 @@ console.log(post)
     }
 });
 
+router.get('/mypost/:id', async (req, res) => { 
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: {
+                    model: User,
+                    attributes: { exclude: ['password'] },
+                },
+        });
+
+        if (!postData) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
+        const post = postData.get({ plain: true });
+        post.date_created = dateUtils.format_date(post.date_created);
+console.log(post)
+        res.render('update', {
+            id: post.id,
+            name: post.name,
+            date_created: post.date_created,
+            content: post.content,
+            user: {
+                username: post.user.username
+            },
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

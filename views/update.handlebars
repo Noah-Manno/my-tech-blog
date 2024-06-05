@@ -1,0 +1,46 @@
+<div class="col s12" id="current-post" data-post-id={{id}}>
+    <div class="card">
+        <div class="card-header">
+            <span class="card-title">{{name}}</span>
+            <span class="date-posted">{{date_created}} by {{user.username}}</span>
+        </div>
+        <div class="card-content">
+            <p>{{content}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Trigger -->
+{{#if logged_in}}
+<div class="button-container">
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Edit Post</a>
+</div>
+<div class="button-container">
+  <a class="waves-effect waves-light btn modal-trigger red" href="#modal4">Delete Post</a>
+</div>
+{{/if}}
+<!-- Modal Structure -->
+<div id="modal3" class="modal">
+  <form id="update-post-form" class="row login-form">
+    <div class="modal-content">
+      <div class="input-field col s10 offset-s1">
+        <textarea id="update-post-content" type="text" class="materialize-textarea"></textarea>
+        <label for="update-post-content">Change Your Post Content Here</label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="button-container">
+        <button id="add-post-button" form="update-post-form"type="submit" class="waves-effect waves-light btn">Confirm Edit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="modal4" class="modal">
+      <div class="button-container delete-button-container">
+        <button id="delete-confirm" class="waves-effect waves-light btn red">Are you sure?</button>
+      </div>
+</div>
+
+<script src="../public/js/update.js"></script>

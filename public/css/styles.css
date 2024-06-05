@@ -79,7 +79,9 @@ h3 {
 }
 
 #modal1,
-#modal2 {
+#modal2,
+#modal3,
+#modal4 {
     min-height: 300px;
 }
 
@@ -98,4 +100,8 @@ h5 {
     font-size: 14px;
     font-weight: 300;
     color: #05347e;
+}
+
+.delete-button-container {
+    height: 300px;
 }

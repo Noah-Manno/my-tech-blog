@@ -24,7 +24,9 @@ app.use('/public', express.static('public', {
 
 const sess = {
     secret: 'Super secret secret',
-    cookie: {},
+    cookie: {
+      maxAge: 60 * 60 * 1000
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
