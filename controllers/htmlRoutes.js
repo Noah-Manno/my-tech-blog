@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/login', withoutAuth, (req, res) => { res.render('login') });
-router.get('/signup', withoutAuth, (req, res) => { res.render('signup'); });
+router.get('/signup', withoutAuth, (req, res) => { res.render('signup') });
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
