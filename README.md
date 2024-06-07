@@ -51,4 +51,4 @@ Noah Manno: https://github.com/Noah-Manno. Please feel free to reach out to me w
 ## Deployment
 
 Repo: https://github.com/Noah-Manno/my-tech-blog
-deployment: 
+deployment: https://my-tech-blog-0dw5.onrender.com/
