@@ -51,5 +51,4 @@ Noah Manno: https://github.com/Noah-Manno. Please feel free to reach out to me w
 ## Deployment
 
 Repo: https://github.com/Noah-Manno/my-tech-blog
-deployment: https://my-tech-blog-0dw5.onrender.com/
 <img width="902" alt="Screenshot 2024-06-07 at 10 36 17 AM" src="https://github.com/Noah-Manno/my-tech-blog/assets/159598022/63c5f5c0-c5d4-448f-ba87-62b935e34796">
